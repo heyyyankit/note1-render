@@ -38,7 +38,8 @@ app.listen(PORT, function(){
 });
 
 app.get("/", function(req, res){
-    res.redirect("/user/signup");
+    console.log("home route")
+    res.redirect("/home");
 });
 app.get("/home", function(req, res){
     res.render("home", {
@@ -62,7 +63,7 @@ app.post("/createNote", async function(req,res){
     //     body: y
     // }
     if (!req.user) {
-        return res.redirect("/user/signin");
+        return res.redirect("/user/signup");
     }
     await Note.create({
         title: x,
@@ -76,7 +77,7 @@ app.post("/createNote", async function(req,res){
 app.get("/notesList", async function(req, res){
     // const notes = await Note.find().populate('createdBy', 'name email'); // fetch notes with user details
     if (!req.user) {
-        return res.redirect("/user/signin");
+        return res.redirect("/user/signup");
     }
     const notes = await Note.find({createdBy: req.user._id}).populate('createdBy', 'name email'); // fetch notes with user details
     res.render("allNotes", {arr: notes}); // => views/allNotes.ejs
@@ -86,7 +87,7 @@ app.get("/notes/:id", async function(req, res){
     // const id = Number(req.params.id);
     // const note = arr[id];
     if (!req.user) {
-        return res.redirect("/user/signin");
+        return res.redirect("/user/signup");
     }
     const note = await Note.findOne({ _id: req.params.id, createdBy: req.user._id }).populate('createdBy', 'name email');
     if (!note) {
