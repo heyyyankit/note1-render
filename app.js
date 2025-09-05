@@ -51,9 +51,9 @@ app.use("/user", userRoute); // localhost:3000/user/.....
 app.get("/createNote", function(req, res){
     res.render("addNote");
 })
-var arr = [];   // title and body obj
-var x;
-var y;
+const arr = [];   // title and body obj
+const x;
+const y;
 app.post("/createNote", async function(req,res){
     x = String(req.body.x);
     y = String(req.body.y);
