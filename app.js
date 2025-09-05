@@ -52,8 +52,8 @@ app.get("/createNote", function(req, res){
     res.render("addNote");
 })
 const arr = [];   // title and body obj
-const x;
-const y;
+let x;
+let y;
 app.post("/createNote", async function(req,res){
     x = String(req.body.x);
     y = String(req.body.y);
