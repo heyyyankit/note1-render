@@ -1,0 +1,21 @@
+<%- include('partials/layoutTop', { pageTitle: 'Add Note', pageStylesheet: 'addNote.css' }) %>
+
+<section class="card">
+	<h1 class="card__title">Add a note</h1>
+	<form action="/createNote" method="post" class="form">
+		<label class="form__group">
+			<span class="form__label">Title</span>
+			<input type="text" name="x" placeholder="Note title" class="input" required>
+		</label>
+		<label class="form__group">
+			<span class="form__label">Body</span>
+			<textarea name="y" placeholder="Note body" class="textarea" rows="6" required></textarea>
+		</label>
+		<div class="form__actions">
+			<button type="submit" class="btn btn--primary">Add Note</button>
+			<a href="/notesList" class="btn btn--ghost">All notes</a>
+		</div>
+	</form>
+</section>
+
+<%- include('partials/layoutBottom') %>

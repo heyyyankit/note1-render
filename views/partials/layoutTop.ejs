@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= pageTitle || 'Notes App' %></title>
+	<link rel="stylesheet" href="/css/base.css">
+	<% if (typeof pageStylesheet !== 'undefined' && pageStylesheet) { %>
+	<link rel="stylesheet" href="/css/<%= pageStylesheet %>">
+	<% } %>
+</head>
+<body>
+	<header class="site-header">
+		<div class="app">
+			<nav class="nav">
+				<a href="/home" class="brand">Notes</a>
+				<div class="nav-actions">
+					<a href="/createNote" class="btn btn--ghost">Add Note</a>
+					<a href="/notesList" class="btn btn--ghost">All Notes</a>
+					<% console.log("User layoutTop: ", user) %>
+					<% if(user) { %>
+						<a href="/home" class="btn btn--secondary"> <%= user.name %></a>
+						<a href="/user/logout" class="btn btn--danger"> Logout</a>
+						<% } else { %>
+						<a href="/user/signin" class="btn btn--secondary"> Login/Signup</a>
+					<% } %>
+
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main class="app">
+

@@ -1,0 +1,21 @@
+<%- include('partials/layoutTop', { pageTitle: 'Sign In', pageStylesheet: 'addNote.css' }) %>
+
+<section class="card" style="max-width: 400px; margin: 32px auto;">
+    <h1 class="card__title">Sign In</h1>
+    <form action="/user/signin" method="POST" class="form">
+        <label class="form__group">
+            <span class="form__label">Email</span>
+            <input type="email" id="email" name="email" class="input" placeholder="Tell your email" required>
+        </label>
+        <label class="form__group">
+            <span class="form__label">Password</span>
+            <input type="password" id="password" name="password" class="input password-bg" placeholder="Your secret to the secret" required>
+        </label>
+        <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Sign In</button>
+            <a href="/user/signup" class="btn btn--ghost">Need one more account? Register</a>
+        </div>
+    </form>
+</section>
+
+<%- include('partials/layoutBottom') %>

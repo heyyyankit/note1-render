@@ -1,0 +1,12 @@
+<%- include('partials/layoutTop', { pageTitle: note.title, pageStylesheet: 'viewNote.css' }) %>
+
+<div class="div">
+	<h1 class="div__title"><%= note.title %></h1>
+	<p class="div__body"><%= note.body %></p>
+	<div class="div__actions">
+		<a href="/notesList" class="btn btn--ghost">Back to Notes</a>
+		<a href="/createNote" class="btn btn--secondary">Add Another Note</a>
+	</div>
+</div>
+
+<%- include('partials/layoutBottom') %>

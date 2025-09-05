@@ -1,0 +1,26 @@
+<%- include('partials/layoutTop', { pageTitle: 'All Notes', pageStylesheet: 'allNotes.css' }) %>
+
+<section class="list">
+	<h1 class="list__title">All Notes</h1>
+	<div class="grid">
+	<% arr.map((item, index)=>{ %>
+		<div class="note">
+			<h2 class="note__title"><span class="muted">#<%= index+1 %>:</span> <%= item.title %></h2>
+			<p class="note__body">
+				<% if(item.body.length < 120){ %>
+					<%= item.body %>
+				<% } else { %>
+					<%= item.body.substring(0, 120) %>...
+					<!-- GET request, route by id -->
+					<a href="/notes/<%= item._id %>" class="link">Read more</a>
+				<% } %>
+			</p>
+		</div>
+	<% }) %>
+	</div>
+	<div class="list__footer">
+		<a href="/createNote" class="btn btn--primary">Add Note</a>
+	</div>
+</section>
+
+<%- include('partials/layoutBottom') %>
